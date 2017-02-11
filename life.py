@@ -37,21 +37,28 @@ def display(state):
 def initialize(size, seed=None):
     """Initialize the Game of Life field"""
     np.random.seed(SEED)
+    X1 = np.zeros(SIZE, dtype=bool)
     X = np.zeros(SIZE, dtype=bool)
     r = np.random.random(SIZE)
     X = (r > 0.75)
-    return X
+    return X, X1
 
 if __name__ == "__main__":
     sense.clear()  # no arguments defaults to off
-    X = initialize(SIZE, SEED)  # set up display
+
+    X, X1 = initialize(SIZE, SEED)  # set up display
     display(X)
+    reset = False
 
     while True:  # Main loop
-        for event in sense.stick.get_events():
-            # Reset on joystick
-            X = initialize(SIZE, SEED)  # set up display
+        if reset or len(sense.stick.get_events()) > 0:
+            reset = False
+            X, X1 = initialize(SIZE, SEED)  # set up display
             display(X)
         sleep(DELAY)
         X = life_step(X)
         display(X)
+        if np.array_equal(X, X1):
+            reset = True
+            sleep(DELAY * 3)
+        X1 = X
