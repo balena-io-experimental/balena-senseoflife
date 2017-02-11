@@ -13,7 +13,7 @@ except (TypeError, ValueError) as e:
     SEED = None
 ## Preset
 # Field size
-SIZE = (4, 4)  # The Size of the SenseHAT LED matrix
+SIZE = (8, 8)  # The Size of the SenseHAT LED matrix
 PIXEL = [0, 128, 0]  # R, G, B colour of the displayed state
 ZERO = [0, 0, 0]
 DELAY = 1.0  # seconds between updates
