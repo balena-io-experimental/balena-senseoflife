@@ -1,0 +1,11 @@
+FROM resin/%%RESIN_MACHINE_NAME%%-python:3-20170201
+
+WORKDIR /usr/src/app
+ENV INITSYSTEM on
+
+COPY requirements.txt ./
+RUN pip install -r requirements.txt
+
+COPY life.py ./
+
+CMD ["python", "life.py"]
