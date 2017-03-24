@@ -4,6 +4,9 @@ A simple project to play [Conway's Game of Life](https://en.wikipedia.org/wiki/C
 on a Raspberry Pi [SenseHAT](https://www.raspberrypi.org/products/sense-hat/)'s
 8x8 LCD matrix, deployed with [resin.io](https://resin.io)
 
+Follow the [resin.io getting started guide](https://docs.resin.io/raspberrypi3/python/getting-started/) at first,
+to deploy this project to your device.
+
 ## Notes
 
 * The code randomly initializes the board, except if the `SEED` environment variable
